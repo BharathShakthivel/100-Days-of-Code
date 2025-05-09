@@ -1,0 +1,83 @@
+---
+
+## 🕹️ Hangman Game – Python Terminal Version
+
+This is a simple text-based Hangman game built using Python. The player guesses letters of a hidden word, with a limited number of incorrect guesses allowed before the game ends.
+
+---
+
+## 📄 Project Structure
+
+```
+hangman/
+│
+├── hangman.py           # Main game script
+├── hangman_words.py     # Contains the word list
+├── hangman_art.py       # Contains ASCII art for logo and hangman stages
+```
+
+---
+
+## 🧠 Key Concepts and Terminology
+
+### ✅ Imports and Modules
+
+* `random`: Built-in Python module to randomly select a word from the list.
+* `hangman_words`: Custom module containing a predefined list of words (`word_list`).
+* `hangman_art`: Custom module that includes:
+
+  * `logo`: ASCII art logo displayed at the start.
+  * `stages`: List of ASCII art strings representing the hangman for each stage of the game.
+
+### 🎮 Game Variables
+
+* `lives`: Number of chances (6) the player has to guess the word.
+* `chosen_word`: Random word selected from `word_list` for the player to guess.
+* `placeholder`: String of underscores (`_`) representing unguessed letters in the word.
+* `correct_letters`: List to store correctly guessed letters.
+* `game_over`: Boolean flag used to control when the game ends.
+
+### 🔁 Game Loop Logic
+
+* Runs continuously using `while not game_over` until the player either:
+
+  * Wins (by guessing all letters), or
+  * Loses (by running out of lives).
+* Prompts the user for a guess (`input().lower()`), ensures consistency by converting input to lowercase.
+* Updates the displayed word if a correct letter is guessed.
+* Deducts a life and shows a message if the guess is incorrect.
+* Ends the game and prints the outcome based on win/loss.
+
+### 🖼️ Visual Feedback
+
+* `logo` is shown at the start of the game.
+* `stages[lives]` is printed after each guess to visually represent progress/failure.
+* The current word (with correctly guessed letters and remaining underscores) is displayed after each guess.
+
+---
+
+## 🚀 How to Run the Game
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-username/hangman.git
+   cd hangman
+   ```
+
+2. Run the main game script:
+
+   ```bash
+   python hangman.py
+   ```
+
+---
+
+## 📌 Notes
+
+* Ensure that `hangman_words.py` and `hangman_art.py` are in the same directory as `hangman.py`.
+* This game is played entirely in the terminal and is beginner-friendly.
+
+---
+
+

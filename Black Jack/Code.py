@@ -13,6 +13,9 @@ if option.lower() == "y":
   computer = random.choices(cards, k=2)
   print(f"Your Cards: {user}, current score: {sum(int(x) for x in user)}")
   print(f"Computer's first card: {computer[0]}")
+  if 11 in user:
+   if sum(int(x) for x in user) > 23:
+    
   another_card = input("Type 'y' to get another card, type 'n' to pass: ")
   if another_card.lower() == 'y':
    user.append(random.choice(cards))

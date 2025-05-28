@@ -57,7 +57,7 @@ def black_jack():
             if computer[computer.index(i)] == 11:
                 computer.remove(11)
                 computer.append(1)
-        computer_score = sum(int(y) for y in computer)
+        computer_score = calculate_score(computer)
         if user_score > 21:
          print(f"Your final hand: {user}, final score: {user_score}")
          print(f"Computer final hand: {computer}, Computer final score: {computer_score}")
@@ -91,19 +91,19 @@ def black_jack():
     elif another_card.lower() == 'n':
      while computer_score < 16:
       computer.append(random.choice(cards))
-      computer_score = sum(int(y) for y in computer)
+      computer_score = calculate_score(computer)
      if sum(int(x) for x in user) > computer_score:
-      print(f"Your Cards: {user}, final score: {sum(int(x) for x in user)}")
+      print(f"Your Cards: {user}, final score: {calculate_score(user)}")
       print(f"Computer final hand: {computer}, Computer final score: {computer_score}")
       print("You Won")
       keep_going = False
      elif sum(int(x) for x in user) < computer_score:
-      print(f"Your Cards: {user}, final score: {sum(int(x) for x in user)}")
+      print(f"Your Cards: {user}, final score: {calculate_score(user)}")
       print(f"Computer final hand: {computer}, Computer final score: {computer_score}")
       print("You Lost")
       keep_going = False
      elif sum(int(x) for x in user) == computer_score:
-      print(f"Your Cards: {user}, final score: {sum(int(x) for x in user)}")
+      print(f"Your Cards: {user}, final score: {calculate_score(user)}")
       print(f"Computer final hand: {computer}, Computer final score: {computer_score}")
       print("It's a draw")
       keep_going = False

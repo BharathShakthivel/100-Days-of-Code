@@ -77,5 +77,43 @@ while is_on:
 
 
 
+----------------------------------------------------------------------------------------------
+
+
+
+
+# Using OOPS Concept
+
+from menu import Menu
+from coffee_maker import CoffeeMaker
+from money_machine import MoneyMachine
+x = Menu()
+y = CoffeeMaker()
+z = MoneyMachine()
+
+# Main Execution begins here.
+
+is_on = True
+while is_on:
+    print(f"Here is the list of options ({x.get_items()})")
+    order_name = input("What would you like to order?")
+    choice_made = x.find_drink(order_name)
+    if order_name == "off":
+        is_on = False
+    if order_name == "report":
+        y.report()
+        z.report()
+    if choice_made is not None:
+        order_success = y.is_resource_sufficient(choice_made)
+        if order_success:
+         cost = choice_made.cost
+         current_order = z.make_payment(cost)
+         if current_order:
+             y.make_coffee(choice_made)
+        else:
+         print(f"{choice_made.name} order cannot be processed")
+         print("Try Again")
+         pass
+
 
 
